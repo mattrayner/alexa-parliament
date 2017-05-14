@@ -1,5 +1,17 @@
 # Alexa Parliament Skill
 A simple skill that scrapes the parliament.uk website and tells you what's going on today.
 
-## Phrases
+## Proposed Phrases
+> Open Parliament
 > Ask Parliament, what's on
+> Ask Parliament, what's on in the house of commons
+> Ask Parliament, what's on in the house of lords
+
+## Local Development
+```bash
+npm install
+cd lib
+npm install
+cd ..
+npm run test
+```
