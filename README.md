@@ -9,9 +9,6 @@ A simple skill that scrapes the parliament.uk website and tells you what's going
 
 ## Local Development
 ```bash
-npm install
-cd lib
-npm install
-cd ..
+npm run setup
 npm run test
 ```

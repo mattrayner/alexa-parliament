@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit",
-    "test-unit": "NODE_ENV=test mocha test/setup.spec.js test/**/*.spec.js"
+    "test-unit": "NODE_ENV=test mocha test/setup.spec.js test/**/*.spec.js",
+    "setup": "npm install && cd lib && npm install"
   },
   "repository": {
     "type": "git",

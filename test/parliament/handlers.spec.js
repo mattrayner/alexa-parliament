@@ -1,75 +1,75 @@
-const expect = require('chai').expect
-const sinon = require('sinon')
-const request = require('request')
-const mockery = require('mockery')
-const fs = require('fs')
-const Bluebird = require('bluebird')
+// Include our testing frameworks
+const expect = require("chai").expect; // Expectations
+const sinon = require("sinon");        // Spying
+const mockery = require("mockery");    // Mocking remote connections
 
-const handlers = require('../../lib/parliament/handlers')
-const language_strings = require('../../lib/parliament/language_strings')
+// Include additional modules to help with testing
+const fs = require("fs");
+const Bluebird = require("bluebird");
 
-describe('The handlers module', function(){
-    it('is an object', function() {
-        expect(handlers).to.be.an('object')
-    })
+// Include the subject of our tests
+const handlers = require("../../lib/parliament/handlers");
+const language_strings = require("../../lib/parliament/language_strings");
+const translation_dictionary = "en-GB";
 
-    it('has the expected intents', function(){
-        expect(Object.keys(handlers)).to.eql([ 'WhatsOnIntent', 'AMAZON.HelpIntent', 'LaunchRequest' ])
-    })
+describe("The handlers module", function(){
+    it("is an object", function() {
+        expect(handlers).to.be.an("object");
+    });
 
-    describe('intents', function () {
+    it("has the expected intents", function(){
+        expect(Object.keys(handlers)).to.eql([ "WhatsOnIntent", "AMAZON.HelpIntent", "LaunchRequest" ]);
+    });
 
+    describe("intents", function () {
+        // Allow for emit and t to be called (usually handled by Alexa SDK
         beforeEach(function(){
-            handlers.t = function(key) { return language_strings['en-GB']['translation'][key] }
-            handlers.emit = function(arguments) {  }
-        })
+            handlers.t = function(key) { return language_strings[translation_dictionary].translation[key]; };
+            handlers.emit = function(args) {  };
+        });
 
         afterEach(function(){
-            handlers.t = undefined
-            handlers.emit = undefined
-        })
+            handlers.t = undefined;
+            handlers.emit = undefined;
+        });
 
-        describe('WhatsOnIntent', function (){
-            context('with content', function(){
-                context('for the commons commons', function(){
+        describe("WhatsOnIntent", function (){
+            context("with content", function(){
+                context("for the commons commons", function(){
                     before(function (done) {
-                        console.log('BEFORE')
+                        console.log("BEFORE");
 
-                        var filename = "commons_content.html";
+                        let filename = "commons_content.html";
                         mockery.enable({
                             warnOnReplace: false,
                             warnOnUnregistered: false,
                             useCleanCache: true
-                        })
+                        });
 
-                        mockery.registerMock('request-promise', function () {
-                            console.log('MOCKED')
-
-                            var response = fs.readFileSync(__dirname + '/../fixtures/' + filename, 'utf8');
+                        mockery.registerMock("request-promise", function () {
+                            let response = fs.readFileSync(__dirname + "/../fixtures/" + filename, "utf8");
                             return Bluebird.resolve(response.trim());
-                        })
+                        });
 
-                        mocked_handlers = require('../../lib/parliament/handlers')
-                        mocked_handlers.t = function(key) { return language_strings['en-GB']['translation'][key] }
-                        mocked_handlers.emit = function(arguments) {  }
+                        mocked_handlers = require("../../lib/parliament/handlers");
+                        mocked_handlers.t = function(key) { return language_strings[translation_dictionary].translation[key] };
+                        mocked_handlers.emit = function(arguments) {  };
 
                         done()
-                    })
+                    });
 
                     after(function (done) {
-                        console.log('AFTER')
-                        mockery.disable()
-                        mockery.deregisterAll()
+                        mockery.disable();
+                        mockery.deregisterAll();
 
                         done()
-                    })
+                    });
 
-                    it('emits as expected', function(done){
-                        let spy = sinon.spy(mocked_handlers, 'emit')
+                    it("emits as expected", function(done){
+                        let spy = sinon.spy(mocked_handlers, "emit");
 
-                        mocked_handlers['WhatsOnIntent'](function(done){
-                            console.log('here')
-                            expect(spy).to.have.been.calledWith(':tellWithCard', 'At parliament today, there are events in  false  has 0 events false  has 0 events false  has 0 events false  has 0 events false  has 0 events', 'WHATS_ON_CARD_TITLE', 'WHATS_ON_CARD_BODY')
+                        mocked_handlers["WhatsOnIntent"](function(done){
+                            expect(spy).to.have.been.calledWith(":tellWithCard", "foo", "bar", "other");
 
                             done()
                         }, done)
@@ -77,25 +77,25 @@ describe('The handlers module', function(){
                 })
             })
 
-        })
+        });
 
-        describe('AMAZON.HelpIntent', function(){
-            it('emits as expected', function(){
-                let spy = sinon.spy(handlers, 'emit')
+        describe("AMAZON.HelpIntent", function(){
+            it("emits as expected", function(){
+                let spy = sinon.spy(handlers, "emit");
 
-                handlers['AMAZON.HelpIntent']()
+                handlers["AMAZON.HelpIntent"]();
 
-                expect(spy).to.have.been.calledWith(':ask', "I can tell you what's going on at Parliament today. Simply ask 'what's on'.", "I can tell you what's going on at Parliament today. Simply ask 'what's on'.")
+                expect(spy).to.have.been.calledWith(":ask", "I can tell you what's going on at Parliament today. Simply ask 'what's on'.", "I can tell you what's going on at Parliament today. Simply ask 'what's on'.")
             })
-        })
+        });
 
-        describe('LaunchRequest', function(){
-            it('emits as expected', function(){
-                let spy = sinon.spy(handlers, 'emit')
+        describe("LaunchRequest", function(){
+            it("emits as expected", function(){
+                let spy = sinon.spy(handlers, "emit");
 
-                handlers['LaunchRequest']()
+                handlers["LaunchRequest"]();
 
-                expect(spy).to.have.been.calledWith(':tell', 'Welcome to Parliament')
+                expect(spy).to.have.been.calledWith(":tell", "Welcome to Parliament")
             })
         })
     })
