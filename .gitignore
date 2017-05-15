@@ -2,3 +2,5 @@
 node_modules/
 lib/node_modules/
 npm-debug.log
+lib/*.zip
+.DS_Store
