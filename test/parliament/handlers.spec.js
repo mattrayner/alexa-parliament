@@ -18,7 +18,7 @@ describe("The handlers module", function(){
     });
 
     it("has the expected intents", function(){
-        expect(Object.keys(handlers)).to.eql([ "WhatsOnIntent", "AMAZON.HelpIntent", "LaunchRequest" ]);
+        expect(Object.keys(handlers)).to.eql([ "events", "WhatsOnIntent", "AMAZON.HelpIntent", "LaunchRequest" ]);
     });
 
     describe("intents", function () {
@@ -37,8 +37,6 @@ describe("The handlers module", function(){
             context("with content", function(){
                 context("for the commons commons", function(){
                     before(function (done) {
-                        console.log("BEFORE");
-
                         let filename = "commons_content.html";
                         mockery.enable({
                             warnOnReplace: false,
@@ -69,7 +67,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["WhatsOnIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":tellWithCard", "foo", "bar", "other");
+                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?", "What's on at Parliament", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?")
 
                             done()
                         }, done)
@@ -95,7 +93,7 @@ describe("The handlers module", function(){
 
                 handlers["LaunchRequest"]();
 
-                expect(spy).to.have.been.calledWith(":tell", "Welcome to Parliament")
+                expect(spy).to.have.been.calledWith(":tell", "UK Parliament. You can find out what’s on in: the House of Commons, the House of Lords, or Both. Which would you like to do?")
             })
         })
     })
