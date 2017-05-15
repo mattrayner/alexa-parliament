@@ -37,15 +37,24 @@ describe("The handlers module", function(){
             context("with content", function(){
                 context("for the commons commons", function(){
                     before(function (done) {
-                        let filename = "commons_content.html";
+                        let commons_content_filename = "commons_content.html";
+                        let lords_content_filename = "lords_content.html";
                         mockery.enable({
                             warnOnReplace: false,
                             warnOnUnregistered: false,
                             useCleanCache: true
                         });
 
-                        mockery.registerMock("request-promise", function () {
-                            let response = fs.readFileSync(__dirname + "/../fixtures/" + filename, "utf8");
+                        mockery.registerMock("request-promise", function (config) {
+                            let file_path = "";
+
+                            if (config.uri.indexOf("Commons") > 0) {
+                                file_path = __dirname + "/../fixtures/" + commons_content_filename;
+                            } else {
+                                file_path = __dirname + "/../fixtures/" + lords_content_filename;
+                            }
+
+                            let response = fs.readFileSync(file_path, "utf8");
                             return Bluebird.resolve(response.trim());
                         });
 
@@ -67,7 +76,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["WhatsOnIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?", "What's on at Parliament", "There are 50 on at the Houses of Parliament today: 25 in the House of Commons and 25 in the House of Lords would you like to hear more?")
+                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 45 on at the Houses of Parliament today: 25 in the House of Commons and 20 in the House of Lords would you like to hear more?", "There are 45 on at the Houses of Parliament today: 25 in the House of Commons and 20 in the House of Lords would you like to hear more?", "What's on at Parliament", "There are 45 on at the Houses of Parliament today: 25 in the House of Commons and 20 in the House of Lords would you like to hear more?")
 
                             done()
                         }, done)
