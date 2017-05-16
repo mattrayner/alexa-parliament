@@ -9,7 +9,15 @@
       "samples": []
     },
     {
+      "name": "AMAZON.NoIntent",
+      "samples": []
+    },
+    {
       "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.YesIntent",
       "samples": []
     },
     {
