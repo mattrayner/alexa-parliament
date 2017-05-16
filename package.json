@@ -1,0 +1,45 @@
+{
+  "name": "alexa-parliament",
+  "version": "0.1.0",
+  "description": "A simple Alexa skill for the UK Parliament",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-unit",
+    "test-unit": "NODE_ENV=test mocha test/setup.spec.js test/**/*.spec.js",
+    "setup": "npm install && cd lib && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattrayner/alexa-parliament.git"
+  },
+  "keywords": [
+    "alexa",
+    "skill",
+    "parliament",
+    "uk",
+    "house",
+    "of",
+    "commons",
+    "house",
+    "of",
+    "lords",
+    "echo",
+    "amazon"
+  ],
+  "author": "Matthew Rayner <hello@rayner.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattrayner/alexa-parliament/issues"
+  },
+  "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "co-mocha": "^1.2.0",
+    "mocha": "^3.3.0",
+    "mockery": "^2.0.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "sinon": "^2.2.0",
+    "sinon-chai": "^2.10.0"
+  }
+}

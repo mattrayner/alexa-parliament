@@ -1,0 +1,80 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.NoIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.YesIntent",
+      "samples": []
+    },
+    {
+      "name": "WhatsOnIntent",
+      "samples": [
+        "What's on at {house}",
+        "What's on in the {house}",
+        "What's on",
+        "What's on at Parliament",
+        "What's on at The Houses of Parliament",
+        "What's on at the {house}",
+        "{house}"
+      ],
+      "slots": [
+        {
+          "name": "house",
+          "type": "HOUSE",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "HOUSE",
+      "values": [
+        {
+          "name": {
+            "value": "Lords"
+          }
+        },
+        {
+          "name": {
+            "value": "Commons"
+          }
+        },
+        {
+          "name": {
+            "value": "House of Lords"
+          }
+        },
+        {
+          "name": {
+            "value": "House of Commons"
+          }
+        },
+        {
+          "name": {
+            "value": "Both"
+          }
+        },
+        {
+          "name": {
+            "value": "Both Houses"
+          }
+        }
+      ]
+    }
+  ]
+}
