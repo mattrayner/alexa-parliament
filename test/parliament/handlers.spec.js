@@ -16,7 +16,15 @@ describe("The handlers module", function(){
     });
 
     it("has the expected intents", function(){
-        expect(Object.keys(handlers)).to.eql([ "WhatsOnIntent", "AMAZON.YesIntent", "AMAZON.NoIntent", "AMAZON.HelpIntent", "LaunchRequest" ]);
+        expect(Object.keys(handlers)).to.eql([
+            "AMAZON.YesIntent",
+            "AMAZON.NoIntent",
+            "AMAZON.HelpIntent",
+            "AMAZON.CancelIntent",
+            "AMAZON.StopIntent",
+            "LaunchRequest",
+            "WhatsOnIntent"
+        ]);
     });
 
     describe("intents", function () {
@@ -101,7 +109,7 @@ describe("The handlers module", function(){
 
                 handlers["AMAZON.HelpIntent"]();
 
-                expect(spy).to.have.been.calledWith(":ask", "I can tell you what's going on at Parliament today. Simply ask 'what's on'.", "I can tell you what's going on at Parliament today. Simply ask 'what's on'.");
+                expect(spy).to.have.been.calledWith(":ask", "You can say 'what's on at the houses of parliament', or, you can say exit... What can I help you with?", "You can say 'what's on at the houses of parliament', or, you can say exit... What can I help you with?");
             })
         });
 
@@ -121,7 +129,27 @@ describe("The handlers module", function(){
 
                 handlers["AMAZON.NoIntent"]();
 
-                expect(spy).to.have.been.calledWith(":tell", "Ok, see you next time!");
+                expect(spy).to.have.been.calledWith(":tell", "Okay");
+            })
+        });
+
+        describe("AMAZON.CancelIntent", function(){
+            it("emits as expected", function(){
+                let spy = sinon.spy(handlers, "emit");
+
+                handlers["AMAZON.CancelIntent"]();
+
+                expect(spy).to.have.been.calledWith(":tell", "");
+            })
+        });
+
+        describe("AMAZON.StopIntent", function(){
+            it("emits as expected", function(){
+                let spy = sinon.spy(handlers, "emit");
+
+                handlers["AMAZON.StopIntent"]();
+
+                expect(spy).to.have.been.calledWith(":tell", "Okay");
             })
         });
 
@@ -131,7 +159,7 @@ describe("The handlers module", function(){
 
                 handlers["LaunchRequest"]();
 
-                expect(spy).to.have.been.calledWith(":tell", "UK Parliament. You can find out what’s on in: the House of Commons, the House of Lords, or Both. Which would you like to do?");
+                expect(spy).to.have.been.calledWith("WhatsOnIntent");
             })
         })
     })
