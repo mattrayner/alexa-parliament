@@ -18,7 +18,7 @@
   "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
   "dependencies": {
     "alexa-sdk": "^1.0.9",
-    "cheerio": "^0.22.0",
+    "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }
