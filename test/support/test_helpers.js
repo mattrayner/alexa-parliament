@@ -27,6 +27,7 @@ module.exports = {
             mocked_handlers.t = function(key) { return language_strings[translation_dictionary].translation[key] };
             mocked_handlers.emit = function(arguments) {  };
             mocked_handlers.attributes = [];
+            mocked_handlers.event = { request: { intent: null } };
 
             done()
         });
