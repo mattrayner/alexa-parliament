@@ -54,7 +54,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["WhatsOnIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 55 events on at the Houses of Parliament today: 23 in the House of Commons and 32 in the House of Lords . Would you like to hear more?", ". Would you like to hear more?", "What's on at Parliament", "There are 55 events on at the Houses of Parliament today: 23 in the House of Commons and 32 in the House of Lords . Would you like to hear more?");
+                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 55 events on at the Houses of Parliament today. 23 In the House of Commons and 32 in the House of Lords. Would you like to hear more?", "Would you like to hear more?", "What's on at Parliament?", "There are 55 events on at the Houses of Parliament today. 23 In the House of Commons and 32 in the House of Lords. Would you like to hear more?");
 
                             done();
                         }, done);
@@ -69,7 +69,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["WhatsOnIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 18 events on at the Houses of Parliament today: they are all in the House of Commons . Would you like to hear more?", ". Would you like to hear more?", "What's on at Parliament", "There are 18 events on at the Houses of Parliament today: they are all in the House of Commons . Would you like to hear more?");
+                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 18 events on at the Houses of Parliament today. they are all in the House of Commons. Would you like to hear more?", "Would you like to hear more?", "What's on at Parliament?", "There are 18 events on at the Houses of Parliament today. they are all in the House of Commons. Would you like to hear more?");
 
                             done();
                         }, done);
@@ -84,7 +84,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["WhatsOnIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 16 events on at the Houses of Parliament today: they are all in the House of Lords . Would you like to hear more?", ". Would you like to hear more?", "What's on at Parliament", "There are 16 events on at the Houses of Parliament today: they are all in the House of Lords . Would you like to hear more?");
+                            expect(spy).to.have.been.calledWith(":askWithCard", "There are 16 events on at the Houses of Parliament today. they are all in the House of Lords. Would you like to hear more?", "Would you like to hear more?", "What's on at Parliament?", "There are 16 events on at the Houses of Parliament today. they are all in the House of Lords. Would you like to hear more?");
 
                             done();
                         }, done);
@@ -100,7 +100,7 @@ describe("The handlers module", function(){
                     let spy = sinon.spy(mocked_handlers, "emit");
 
                     mocked_handlers["WhatsOnIntent"](function(done){
-                        expect(spy).to.have.been.calledWith(":tellWithCard", "There are no events on at the Houses of Parliament today:", "What's on at Parliament", "There are no events on at the Houses of Parliament today:");
+                        expect(spy).to.have.been.calledWith(":tellWithCard", "There are no events on at the Houses of Parliament today.", "What's on at Parliament?", "There are no events on at the Houses of Parliament today.");
 
                         done();
                     }, done);
@@ -115,7 +115,7 @@ describe("The handlers module", function(){
                     let spy = sinon.spy(mocked_handlers, "emit");
 
                     mocked_handlers["WhatsOnIntent"](function(done){
-                        expect(spy).to.have.been.calledWith(":tell", "Something went wrong, please try again later");
+                        expect(spy).to.have.been.calledWith(":tell", "Something went wrong, please try again later.");
 
                         done();
                     }, done);
@@ -198,7 +198,7 @@ describe("The handlers module", function(){
                         let spy = sinon.spy(mocked_handlers, "emit");
 
                         mocked_handlers["AMAZON.YesIntent"](function(done){
-                            expect(spy).to.have.been.calledWith(":tell", `Something went wrong, please try again later`);
+                            expect(spy).to.have.been.calledWith(":tell", `Something went wrong, please try again later.`);
 
                             done();
                         }, done);
@@ -281,7 +281,7 @@ describe("The handlers module", function(){
 
                 handlers["AMAZON.NoIntent"]();
 
-                expect(spy).to.have.been.calledWith(":tell", "Okay");
+                expect(spy).to.have.been.calledWith(":tell", "Okay.");
             })
         });
 
@@ -301,7 +301,7 @@ describe("The handlers module", function(){
 
                 handlers["AMAZON.StopIntent"]();
 
-                expect(spy).to.have.been.calledWith(":tell", "Okay");
+                expect(spy).to.have.been.calledWith(":tell", "Okay.");
             })
         });
 
