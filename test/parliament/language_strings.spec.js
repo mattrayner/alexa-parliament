@@ -3,7 +3,7 @@ const expect = require('chai').expect
 const language_strings = require('../../lib/parliament/language_strings')
 
 // How many strings should there be?
-const expected_strings = 22;
+const expected_strings = 25;
 
 describe('The language_strings module', function(){
     // Ensure we test any new translation blocks

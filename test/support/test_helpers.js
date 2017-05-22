@@ -9,7 +9,7 @@ const translation_dictionary = "en-GB";
 module.exports = {
     mocked_handlers: function(data_file) {
         before(function (done) {
-            let test_data_file = data_file;;
+            let test_data_file = data_file;
             mockery.enable({
                 warnOnReplace: false,
                 warnOnUnregistered: false,
@@ -26,6 +26,7 @@ module.exports = {
             mocked_handlers = require("../../lib/parliament/handlers");
             mocked_handlers.t = function(key) { return language_strings[translation_dictionary].translation[key] };
             mocked_handlers.emit = function(arguments) {  };
+            mocked_handlers.attributes = [];
 
             done()
         });

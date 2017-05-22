@@ -34,11 +34,13 @@ describe("The handlers module", function(){
         beforeEach(function(){
             handlers.t = function(key) { return language_strings[translation_dictionary].translation[key]; };
             handlers.emit = function(args) {  };
+            handlers.attributes = [];
         });
 
         afterEach(function(){
             handlers.t = undefined;
             handlers.emit = undefined;
+            handlers.attributes = undefined
         });
 
         describe("WhatsOnIntent", function (){
@@ -131,10 +133,12 @@ describe("The handlers module", function(){
         });
 
         describe("AMAZON.YesIntent", function(){
-            it("emits as expected", function(){
-                let spy = sinon.spy(handlers, "emit");
+            helpers.mocked_handlers("events_both_houses.json");
 
-                handlers["AMAZON.YesIntent"]();
+            it("emits as expected", function(done){
+                let spy = sinon.spy(mocked_handlers, "emit");
+
+                mocked_handlers["AMAZON.YesIntent"](done);
 
                 expect(spy).to.have.been.calledWith(":tell", "Once this feature has been implemented, it will be great!");
             })
