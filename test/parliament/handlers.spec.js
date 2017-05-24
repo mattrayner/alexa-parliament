@@ -203,7 +203,7 @@ describe("The handlers module", function(){
 
                 handlers["AMAZON.HelpIntent"]();
 
-                expect(spy).to.have.been.calledWith(":ask", "You can say 'what's on at the houses of parliament', or, you can say exit... What can I help you with?", "You can say 'what's on at the houses of parliament', or, you can say exit... What can I help you with?");
+                expect(spy).to.have.been.calledWith(":ask", "Parliament for Alexa can tell you what's on today at the Houses of Parliament. Try saying 'what's on' to hear about the events at both houses or 'whats on at the commons', or 'whats on in the lords' to hear what's on at a specific house.", "Try saying 'what's on'");
             })
         });
 
@@ -385,7 +385,7 @@ describe("The handlers module", function(){
 
                 handlers["LaunchRequest"]();
 
-                expect(spy).to.have.been.calledWith("WhatsOnIntent");
+                expect(spy).to.have.been.calledWith(":ask", "Welcome to Parliament. Say 'what's on' to find out whats happening today at the Houses of Parliament or say help for more information.", "Try saying 'what's on', or 'help'");
             })
         })
     })
