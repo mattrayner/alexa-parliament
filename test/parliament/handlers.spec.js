@@ -107,6 +107,80 @@ describe("The handlers module", function(){
                 });
             });
 
+            context("with a slot", function(){
+                context("with a commons slot", function(){
+                    context("with data", function(){
+                        // Mock handlers with content for commons only
+                        helpers.mocked_handlers("events_commons.json");
+
+                        it("emits as expected", function(done){
+                            let spy = sinon.spy(mocked_handlers, "emit");
+
+                            mocked_handlers.event= { request: { intent: { slots: { house: { value: "commons" } } } } };
+
+                            mocked_handlers["WhatsOnIntent"](function(done){
+                                expect(spy).to.have.been.calledWith(":askWithCard", "There are 18 events on at the House of Commons today. Would you like to hear more?", "Would you like to hear more?", "What's on at Parliament?", "There are 18 events on at the House of Commons today. Would you like to hear more?");
+
+                                done();
+                            }, done);
+                        });
+                    });
+
+                    context("without data", function(){
+                        // Mock handlers with content for commons only
+                        helpers.mocked_handlers("events_none.json");
+
+                        it("emits as expected", function(done){
+                            let spy = sinon.spy(mocked_handlers, "emit");
+
+                            mocked_handlers.event= { request: { intent: { slots: { house: { value: "commons" } } } } };
+
+                            mocked_handlers["WhatsOnIntent"](function(done){
+                                expect(spy).to.have.been.calledWith(":tellWithCard", "There are no events on at the House of Commons today.", "What's on at Parliament?", "There are no events on at the House of Commons today.");
+
+                                done();
+                            }, done);
+                        });
+                    });
+                });
+
+                context("with a lords slot", function(){
+                    context("with data", function(){
+                        // Mock handlers with content for commons only
+                        helpers.mocked_handlers("events_lords.json");
+
+                        it("emits as expected", function(done){
+                            let spy = sinon.spy(mocked_handlers, "emit");
+
+                            mocked_handlers.event= { request: { intent: { slots: { house: { value: "lords" } } } } };
+
+                            mocked_handlers["WhatsOnIntent"](function(done){
+                                expect(spy).to.have.been.calledWith(":askWithCard", "There are 16 events on at the House of Lords today. Would you like to hear more?", "Would you like to hear more?", "What's on at Parliament?", "There are 16 events on at the House of Lords today. Would you like to hear more?");
+
+                                done();
+                            }, done);
+                        });
+                    });
+
+                    context("without data", function(){
+                        // Mock handlers with content for commons only
+                        helpers.mocked_handlers("events_none.json");
+
+                        it("emits as expected", function(done){
+                            let spy = sinon.spy(mocked_handlers, "emit");
+
+                            mocked_handlers.event= { request: { intent: { slots: { house: { value: "lords" } } } } };
+
+                            mocked_handlers["WhatsOnIntent"](function(done){
+                                expect(spy).to.have.been.calledWith(":tellWithCard", "There are no events on at the House of Lords today.", "What's on at Parliament?", "There are no events on at the House of Lords today.");
+
+                                done();
+                            }, done);
+                        });
+                    });
+                });
+            });
+
             context("with a network error", function(){
                 // Mock handlers with 404
                 helpers.mocked_handlers("404.html");
