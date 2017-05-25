@@ -38,5 +38,30 @@ module.exports = {
 
             done()
         });
+    },
+
+    mocked_helpers: function(){
+        before(function (done) {
+            mockery.enable({
+                warnOnReplace: false,
+                warnOnUnregistered: false,
+                useCleanCache: true
+            });
+
+            mockery.registerMock("moment", function () {
+                return { format: function(format) { return "2017-02-22" } }
+            });
+
+            mocked_helpers = require("../../lib/parliament/helpers");
+
+            done()
+        });
+
+        after(function (done) {
+            mockery.disable();
+            mockery.deregisterAll();
+
+            done()
+        });
     }
 };

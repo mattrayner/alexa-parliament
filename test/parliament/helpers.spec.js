@@ -8,7 +8,6 @@ const Bluebird = require("Bluebird");
 const helpers = require("../../lib/parliament/helpers");
 
 const language_strings = require("../../lib/parliament/language_strings");
-const translation_dictionary = "en-GB";
 
 const test_helpers = require("../support/test_helpers");
 
@@ -40,7 +39,23 @@ describe("The helpers module", function(){
     });
 
     describe("getCalendarUriOptions", function(){
-        //    Implement
+        test_helpers.mocked_helpers();
+
+        context("without a houseOfInterest", function(){
+            it('returns the expected object', function(){
+                expect(mocked_helpers.getCalendarUriOptions()).to.deep.equal({
+                    uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22"
+                });
+            });
+        });
+
+        context("wit a houseOfInterest", function(){
+            it('returns the expected object', function(){
+                expect(mocked_helpers.getCalendarUriOptions("foo")).to.deep.equal({
+                    uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22&house=foo"
+                });
+            });
+        });
     });
 
     describe("generateEventMessage", function(){
