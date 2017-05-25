@@ -2,7 +2,6 @@
 const expect = require("chai").expect; // Expectations
 const sinon = require("sinon");        // Spying
 const mockery = require("mockery");
-const Bluebird = require("Bluebird");
 
 // Include the subject of our tests
 const handlers = require("../../lib/parliament/handlers");
