@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
   "devDependencies": {
+    "bluebird": "^3.5.0",
     "chai": "^3.5.0",
     "co-mocha": "^1.2.0",
     "mocha": "^3.3.0",
