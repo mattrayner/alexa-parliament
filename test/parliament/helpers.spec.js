@@ -94,5 +94,6 @@ describe("The helpers module", function(){
                 expect(helpers.thereIsAreHelper(count, handlers, block)).to.deep.equal(["THERE_ARE", "block", "content", "EVENTS"])
             });
         });
+
     });
 });
