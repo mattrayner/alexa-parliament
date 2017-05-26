@@ -1,21 +1,4 @@
 {
-  "name": "alexa-parliament",
-  "version": "0.1.0",
-  "description": "A simple Alexa skill that tells you what's on at Parliament",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mattrayner/alexa-parliament.git"
-  },
-  "author": "Matthew Rayner <hello@rayner.io>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mattrayner/alexa-parliament/issues"
-  },
-  "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
   "dependencies": {
     "alexa-sdk": "^1.0.9",
     "moment": "^2.18.1",
