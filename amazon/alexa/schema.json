@@ -23,13 +23,13 @@
     {
       "name": "WhatsOnIntent",
       "samples": [
-        "What's on at {house}",
-        "What's on in the {house}",
         "What's on",
         "What's on at Parliament",
         "What's on at The Houses of Parliament",
         "What's on at the {house}",
-        "{house}"
+        "What's on at the house of {house}",
+        "What's on in the {house}",
+        "What's on in the house of {house}"
       ],
       "slots": [
         {
@@ -46,32 +46,12 @@
       "values": [
         {
           "name": {
-            "value": "Lords"
+            "value": "commons"
           }
         },
         {
           "name": {
-            "value": "Commons"
-          }
-        },
-        {
-          "name": {
-            "value": "House of Lords"
-          }
-        },
-        {
-          "name": {
-            "value": "House of Commons"
-          }
-        },
-        {
-          "name": {
-            "value": "Both"
-          }
-        },
-        {
-          "name": {
-            "value": "Both Houses"
+            "value": "lords"
           }
         }
       ]

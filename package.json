@@ -1,7 +1,7 @@
 {
   "name": "alexa-parliament",
-  "version": "0.1.0",
-  "description": "A simple Alexa skill for the UK Parliament",
+  "version": "0.2.3",
+  "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit",
@@ -32,14 +32,18 @@
     "url": "https://github.com/mattrayner/alexa-parliament/issues"
   },
   "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.9",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
   "devDependencies": {
     "bluebird": "^3.5.0",
     "chai": "^3.5.0",
     "co-mocha": "^1.2.0",
     "mocha": "^3.3.0",
     "mockery": "^2.0.0",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1",
     "sinon": "^2.2.0",
     "sinon-chai": "^2.10.0"
   }
