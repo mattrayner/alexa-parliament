@@ -4,7 +4,7 @@ const sinon = require("sinon");        // Spying
 const mockery = require("mockery");
 
 // Include the subject of our tests
-const handlers = require("../../lib/parliament/handlers");
+const handlers = require("../../lib/parliament/handlers").mainHandlers;
 
 const language_strings = require("../../lib/parliament/language_strings");
 const translation_dictionary = "en-GB";
