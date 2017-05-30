@@ -8,7 +8,7 @@ deploy:
 - provider: lambda
   function_name: parliament
   region: eu-west-1
-  role: arn:amazon:iam::665717792942:role/service-role/parliament
+  role: arn:aws:iam::665717792942:role/service-role/parliament
   runtime: nodejs6.10
   handler_name: handler
   access_key_id: AKIAIFFNHGLEZAPXF4NA
@@ -19,7 +19,7 @@ deploy:
 - provider: lambda
   function_name: parliamentTest
   region: eu-west-1
-  role: arn:amazon:iam::665717792942:role/service-role/parliament
+  role: arn:aws:iam::665717792942:role/service-role/parliament
   runtime: nodejs6.10
   handler_name: handler
   access_key_id: AKIAIFFNHGLEZAPXF4NA
