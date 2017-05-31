@@ -8,7 +8,7 @@ const helpers = require("../../lib/parliament/helpers");
 
 const language_strings = require("../../lib/parliament/language_strings");
 
-const test_helpers = require("../support/test_helpers");
+const test_helpers = require("../support/test_helpers").unit_helpers;
 
 describe("The helpers module", function(){
     it("is an object", function() {
