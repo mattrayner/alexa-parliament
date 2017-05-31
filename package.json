@@ -45,6 +45,9 @@
     "mocha": "^3.3.0",
     "mockery": "^2.0.0",
     "sinon": "^2.2.0",
-    "sinon-chai": "^2.10.0"
+    "sinon-chai": "^2.10.0",
+    "clear-require": "^2.0.0",
+    "lambda-local": "^1.4.2",
+    "winston": "^2.3.1"
   }
 }
