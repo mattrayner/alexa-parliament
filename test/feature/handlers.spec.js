@@ -641,6 +641,9 @@ function runLambdaFunction(cb, debug=false){
         // profileName : profileName,
         callbackWaitsForEmptyEventLoop: false,
         timeoutMs: 3000,
+        environment: {
+            DEBUG: true
+        },
         callback: function (_err, _done) {
             done = _done;
             err = _err;
