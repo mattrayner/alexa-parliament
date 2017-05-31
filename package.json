@@ -1,11 +1,11 @@
 {
   "name": "alexa-parliament",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit",
-    "test-unit": "NODE_ENV=test mocha test/setup.spec.js test/**/*.spec.js",
+    "test-unit": "NODE_ENV=test mocha test/**/*.spec.js",
     "setup": "npm install && cd lib && npm install"
   },
   "repository": {
@@ -44,8 +44,6 @@
     "co-mocha": "^1.2.0",
     "mocha": "^3.3.0",
     "mockery": "^2.0.0",
-    "sinon": "^2.2.0",
-    "sinon-chai": "^2.10.0",
     "clear-require": "^2.0.0",
     "lambda-local": "^1.4.2",
     "winston": "^2.3.1"

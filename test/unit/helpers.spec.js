@@ -1,6 +1,5 @@
 // Include our testing frameworks
 const expect = require("chai").expect; // Expectations
-const sinon = require("sinon");        // Spying
 const mockery = require("mockery");
 
 // Include the subject of our tests

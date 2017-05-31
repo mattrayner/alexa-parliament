@@ -1,0 +1,41 @@
+Notes on the invocation name 'Parliament':
+
+On the 26th May I received certification feedback that stated:
+
+'Your skill does not meet  invocation name requirement   #2: One-word invocation names are not allowed, unless the invocation name is unique to your brand/intellectual property. '
+
+That same day I submitted a customer service case [#2215036261] which detailed why I feel this skill falls under the brand/intellectual property exemption.
+
+I work for Parliament (http://parliament.uk) and have developed this skill in my official capacity of Lead Back-end developer.
+
+My work email account is raynerm@parliament.uk if you require additional verification.
+
+We are an official British government organisation, first established in 1707 I would argue we fall under the brand/intellectual property exemption.
+
+Additional proof of my employment at parliament can be found here:
+
+https://github.com/orgs/ukparliament/people?utf8=✓&query=rayner
+https://github.com/mattrayner
+https://www.linkedin.com/in/mattrayner/
+
+---------------------------
+
+Testing information:
+
+The data the skill gets comes from
+http://calendar.parliament.uk.
+
+The idea of the skill is to effectively read the content of the House of Commons and House of Lords events out to the user.
+
+This data is dependent on wha't going on at Parliament. If you are testing and there are no events listed on http://calendar.parliament.uk, the expected response will tell you that there are no events.
+
+If you can update the lambda functions's date to: 2017-02-22 you will get an example of a complete read out.
+
+Short of that, the UK Parliament will next re-open with a full schedule of events in late June after state opening on the 19th.
+
+Ask:
+What's on at Parliament?
+What's on at the House of Commons?
+What's on at the House of Lords?
+
+Answer yes for a full read out when there are events.
