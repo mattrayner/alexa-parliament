@@ -5,3 +5,4 @@ npm-debug.log
 lib/*.zip
 *.zip
 .DS_Store
+doc/
