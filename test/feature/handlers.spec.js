@@ -237,6 +237,23 @@ describe("Parliament Alexa", function () {
                 it("should have shouldEndSession equal to true", function () {
                     assert.equal(done.response.shouldEndSession, true);
                 });
+
+                describe("Sending an LaunchRequest in response", function(){
+                    beforeEach(function(cb){
+                        event = helpers.getEvent("LaunchRequest.json");
+                        event.session.attributes = done.sessionAttributes;
+
+                        runLambdaFunction(cb);
+                    });
+
+                    it("should return outputSpeech matching string", function () {
+                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Or say, \'help\', for more information. </speak>');
+                    });
+
+                    it("should have shouldEndSession equal to true", function () {
+                        assert.equal(done.response.shouldEndSession, false);
+                    });
+                });
             });
 
             describe("Sending an AMAZON.CancelIntent in response", function(){
@@ -270,6 +287,23 @@ describe("Parliament Alexa", function () {
 
                 it("should have shouldEndSession equal to true", function () {
                     assert.equal(done.response.shouldEndSession, true);
+                });
+            });
+
+            describe("Sending an LaunchRequest in response", function(){
+                beforeEach(function(cb){
+                    event = helpers.getEvent("LaunchRequest.json");
+                    event.session.attributes = done.sessionAttributes;
+
+                    runLambdaFunction(cb);
+                });
+
+                it("should return outputSpeech matching string", function () {
+                    expect(done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Or say, \'help\', for more information. </speak>');
+                });
+
+                it("should have shouldEndSession equal to true", function () {
+                    assert.equal(done.response.shouldEndSession, false);
                 });
             });
 
