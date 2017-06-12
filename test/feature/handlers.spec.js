@@ -348,44 +348,6 @@ describe("Parliament Alexa", function () {
                     it("should have shouldEndSession equal to true", function () {
                         assert.equal(done.response.shouldEndSession, true);
                     });
-
-                    context("with no events", function(){
-                        beforeEach(function(){
-                            helpers.reset_mockery();
-                        });
-
-                        helpers.mocked_handlers("events_none.json");
-
-                        beforeEach(function(cb){
-                             event = helpers.getEvent("AMAZON.YesIntent.json");
-                             event.session.attributes = done.sessionAttributes;
-
-                             runLambdaFunction(cb);
-                        });
-
-                        it("should return outputSpeech matching string", function () {
-                             expect(done.response.outputSpeech.ssml).to.have.string('<speak> in the House of Commons There are no events <break strength="x-strong" /> in the House of Lords There are no events <break strength="x-strong" /> That\'s all for today. </speak>');
-                        });
-                    });
-
-                    context("with a 404 response", function(){
-                        beforeEach(function(){
-                            helpers.reset_mockery();
-                        });
-
-                        helpers.mocked_handlers("404.html");
-
-                        beforeEach(function(cb){
-                            event = helpers.getEvent("AMAZON.YesIntent.json");
-                            event.session.attributes = done.sessionAttributes;
-
-                            runLambdaFunction(cb);
-                        });
-
-                        it("should return outputSpeech matching string", function () {
-                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> Something went wrong, please try again later. </speak>');
-                        });
-                    });
                 });
             });
 
@@ -485,8 +447,8 @@ describe("Parliament Alexa", function () {
                         runLambdaFunction(cb);
                     });
 
-                    it("should return outputSpeech matching string", function () {
-                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> in the House of Commons There are no events <break strength="x-strong" /> in the House of Lords There are no events <break strength="x-strong" /> That\'s all for today. </speak>');
+                    it("should return outputSpeech matching an empty string", function () {
+                        expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                     });
                 });
             });
@@ -603,8 +565,8 @@ describe("Parliament Alexa", function () {
                             runLambdaFunction(cb);
                         });
 
-                        it("should return outputSpeech matching string", function () {
-                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events <break strength="x-strong" /> That\'s all for today. </speak>');
+                        it("should return outputSpeech matching an empty string", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                         });
                     });
                 });
@@ -684,8 +646,8 @@ describe("Parliament Alexa", function () {
                             runLambdaFunction(cb);
                         });
 
-                        it("should return outputSpeech matching string", function () {
-                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events <break strength="x-strong" /> That\'s all for today. </speak>');
+                        it("should return outputSpeech with no content", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                         });
                     });
                 });
