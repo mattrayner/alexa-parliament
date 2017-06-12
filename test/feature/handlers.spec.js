@@ -5,6 +5,12 @@ const assert = require("chai").assert;         // Assertions
 const winston = require("winston");            // Async logging
 const clearRequire = require("clear-require"); // Ablility to clear our require as needed.
 const mockery = require("mockery");            // Mock external network requests
+const mock = require("mock-require");
+const sinon = require("sinon");
+const aws_helpers = require("../helpers");
+
+mock("aws-sdk", aws_helpers.AWS);
+aws_helpers.mockHttpResponse(200, {},'{ "foo": "bar" }');
 
 const helpers = require("../support/test_helpers").feature_helpers;
 

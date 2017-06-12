@@ -33,19 +33,23 @@
   },
   "homepage": "https://github.com/mattrayner/alexa-parliament#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.9",
+    "alexa-sdk": "^1.0.10",
     "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   },
   "devDependencies": {
+    "aws-sdk": "^2.67.0",
     "bluebird": "^3.5.0",
     "chai": "^3.5.0",
-    "co-mocha": "^1.2.0",
-    "mocha": "^3.3.0",
-    "mockery": "^2.0.0",
     "clear-require": "^2.0.0",
+    "co-mocha": "^1.2.0",
     "lambda-local": "^1.4.2",
-    "winston": "^2.3.1"
+    "mocha": "^3.3.0",
+    "mock-require": "^2.0.2",
+    "mockery": "^2.0.0",
+    "sinon": "^2.3.4",
+    "winston": "^2.3.1",
+    "xml2js": "^0.4.17"
   }
 }
