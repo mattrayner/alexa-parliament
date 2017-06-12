@@ -541,6 +541,19 @@ describe("Parliament Alexa", function () {
                         expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are 16 events on at the House of Lords today. Would you like to hear more? </speak>');
                     });
 
+                    context("with 'Lords' slot value", function () {
+                        beforeEach(function(cb){
+                            event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
+                            event.request.intent.slots.house.value = 'Lords';
+
+                            runLambdaFunction(cb);
+                        });
+
+                        it("should return outputSpeech matching string", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are 16 events on at the House of Lords today. Would you like to hear more? </speak>');
+                        });
+                    });
+
                     describe("Sending an AMAZON.YesIntent in response", function() {
                         beforeEach(function (cb) {
                             event = helpers.getEvent("AMAZON.YesIntent.json");
@@ -607,6 +620,19 @@ describe("Parliament Alexa", function () {
 
                     it("should return outputSpeech matching string", function () {
                         expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are 18 events on at the House of Commons today. Would you like to hear more? </speak>');
+                    });
+
+                    context("with 'Commons' slot value", function () {
+                        beforeEach(function(cb){
+                            event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
+                            event.request.intent.slots.house.value = 'Commons';
+
+                            runLambdaFunction(cb);
+                        });
+
+                        it("should return outputSpeech matching string", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are 18 events on at the House of Commons today. Would you like to hear more? </speak>');
+                        });
                     });
 
                     describe("Sending an AMAZON.YesIntent in response", function() {

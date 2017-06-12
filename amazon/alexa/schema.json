@@ -51,7 +51,17 @@
         },
         {
           "name": {
+            "value": "Commons"
+          }
+        },
+        {
+          "name": {
             "value": "lords"
+          }
+        },
+        {
+          "name": {
+            "value": "Lords"
           }
         }
       ]

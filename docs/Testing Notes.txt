@@ -1,8 +1,9 @@
 Notes on the invocation name 'Parliament':
 
 On the 26th May I received certification feedback that stated:
-
-'Your skill does not meet  invocation name requirement   #2: One-word invocation names are not allowed, unless the invocation name is unique to your brand/intellectual property. '
+>>
+Your skill does not meet  invocation name requirement   #2: One-word invocation names are not allowed, unless the invocation name is unique to your brand/intellectual property. '
+<<
 
 That same day I submitted a customer service case [#2215036261] which detailed why I feel this skill falls under the brand/intellectual property exemption.
 
@@ -12,11 +13,29 @@ My work email account is raynerm@parliament.uk if you require additional verific
 
 We are an official British government organisation, first established in 1707 I would argue we fall under the brand/intellectual property exemption.
 
-Additional proof of my employment at parliament can be found here:
+---------------------------
 
-https://github.com/orgs/ukparliament/people?utf8=✓&query=rayner
-https://github.com/mattrayner
-https://www.linkedin.com/in/mattrayner/
+Notes relating to the review dated 10th June 2017:
+
+Two of the points raised in the review that took place on the 10th were:
+
+>>
+1. When attempting to invoke the skill with your third example phrase, the skill returns a non- contextualized response.  The example phrases must function without error since these are interactions that users are most likely to try.  Please see test case 3.1 from our Submission Checklist for guidance on example phrases.
+
+2. When invoking the skill with the following sample utterance "what's on at the lord's/what's on in the lord's" , the skill’s response is irrelevant to the request.  Please see test case 4.3 from our Submission Checklist for guidance on intent responses.
+<<
+
+This issue was caused by error on the testing agent's part. Note that in all occasions, listed in the two points above, the tester used invocations containing "lord's".
+
+This is, however, incorrect on two levels. Firstly, the tester remarks:
+
+'When attempting to invoke the skill with your third example phrase, the skill returns a non- contextualized response.'
+
+However my sample utterances do not use "lord's", instead, the word "lords" is used. This is because the "House of Lords" is a house containing many Lords, to use "lord's" is wrong because it is both factually and grammatically incorrect. "lord's" implies that the house belongs to a specific lord rather that being a house of many.
+
+Secondly, none of my sample utterances or documentation use the "lord's" word.
+
+Please retest and be sure to use the sample utterances as detailed below (I recommend copy/pasting the phrase rather than writing it out. I have carried out extensive testing and have been unable to get an Amazon Echo to return "lord's" as part of an utterance. It i my belief that the testing agent hand-wrote the invocation phrase and through human error created this artefact.
 
 ---------------------------
 
