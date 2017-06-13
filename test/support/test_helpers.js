@@ -72,9 +72,10 @@ module.exports = {
             return require(`../fixtures/requests/${ fileName }`);
         },
 
-        mocked_handlers: function(data_file) {
+        mocked_handlers: function(data_file, future_event_data_file=null) {
             beforeEach(function (done) {
                 let test_data_file = data_file;
+                let additional_test_data_file = future_event_data_file;
                 mockery.enable({
                     warnOnReplace: false,
                     warnOnUnregistered: false,
@@ -82,7 +83,13 @@ module.exports = {
                 });
 
                 mockery.registerMock("request-promise", function (config) {
-                    let file_path = __dirname + "/../fixtures/external_data/" + test_data_file;
+                    let file_path = __dirname + "/../fixtures/external_data/";
+
+                    if(config.uri.includes("date=30days")) {
+                        file_path += additional_test_data_file;
+                    } else {
+                        file_path +=  test_data_file;
+                    }
 
                     let response = fs.readFileSync(file_path, "utf8");
                     return Bluebird.resolve(response.trim());
