@@ -661,6 +661,10 @@ function runLambdaFunction(cb, debug=false){
     lambdalocal.setLogger(winston);
     const lambda = require("../../index.js");
 
+    console.log("<<<<<<<<<<<<<");
+    console.log(event);
+    console.log(">>>>>>>>>>>>>");
+
     lambdalocal.execute({
         event: event,
         lambdaFunc: lambda,
@@ -675,6 +679,12 @@ function runLambdaFunction(cb, debug=false){
         callback: function (_err, _done) {
             done = _done;
             err = _err;
+
+            console.log("-----------------");
+            console.log(done);
+            console.log("=================");
+            console.log(err);
+            console.log("-----------------");
 
             if (done && debug) {
                 console.log('context.done');
