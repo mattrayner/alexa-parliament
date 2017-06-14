@@ -35,7 +35,7 @@ However my sample utterances do not use "lord's", instead, the word "lords" is u
 
 Secondly, none of my sample utterances or documentation use the "lord's" word.
 
-Please retest and be sure to use the sample utterances as detailed below (I recommend copy/pasting the phrase rather than writing it out. I have carried out extensive testing and have been unable to get an Amazon Echo to return "lord's" as part of an utterance. It i my belief that the testing agent hand-wrote the invocation phrase and through human error created this artefact.
+Please re-test and be sure to use the sample utterances as detailed below. I have carried out extensive testing and have been unable to get an Amazon Echo to return "lord's" as part of an utterance. It i my belief that the testing agent hand-wrote the invocation phrase and through human error created this artefact.
 
 ---------------------------
 
