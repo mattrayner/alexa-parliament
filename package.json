@@ -1,12 +1,11 @@
 {
   "name": "alexa-parliament",
-  "version": "0.3.2",
+  "version": "0.3.7",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit",
-    "test-unit": "NODE_ENV=test mocha test/**/*.spec.js",
-    "doc-build": "documentation build index.js -f html -o doc"
+    "test-unit": "NODE_ENV=test mocha test/**/*.spec.js"
   },
   "repository": {
     "type": "git",

@@ -42,7 +42,12 @@ describe("The helpers module", function(){
         context("without a houseOfInterest", function(){
             it('returns the expected object', function(){
                 expect(mocked_helpers.getCalendarUriOptions()).to.deep.equal({
-                    uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22"
+                    main: {
+                        uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22"
+                    },
+                    future: {
+                        uri: "http://service.calendar.parliament.uk/calendar/events/list.json?date=30days"
+                    }
                 });
             });
         });
@@ -50,7 +55,12 @@ describe("The helpers module", function(){
         context("wit a houseOfInterest", function(){
             it('returns the expected object', function(){
                 expect(mocked_helpers.getCalendarUriOptions("foo")).to.deep.equal({
-                    uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22&house=foo"
+                    main: {
+                        uri: "http://service.calendar.parliament.uk/calendar/events/list.json?startdate=2017-02-22&enddate=2017-02-22&house=foo"
+                    },
+                    future: {
+                        uri: "http://service.calendar.parliament.uk/calendar/events/list.json?date=30days&house=foo"
+                    }
                 });
             });
         });

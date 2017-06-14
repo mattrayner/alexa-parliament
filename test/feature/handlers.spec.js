@@ -7,7 +7,7 @@ const clearRequire = require("clear-require"); // Ablility to clear our require 
 const mockery = require("mockery");            // Mock external network requests
 const mock = require("mock-require");
 const sinon = require("sinon");
-const aws_helpers = require("../helpers");
+const aws_helpers = require("../support/aws_helpers");
 
 mock("aws-sdk", aws_helpers.AWS);
 aws_helpers.mockHttpResponse(200, {},'{ "foo": "bar" }');
@@ -422,7 +422,7 @@ describe("Parliament Alexa", function () {
                     helpers.reset_mockery();
                 });
 
-                helpers.mocked_handlers("events_none.json");
+                helpers.mocked_handlers("events_none.json", "events_future.json");
 
                 beforeEach(function(cb){
                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -432,7 +432,7 @@ describe("Parliament Alexa", function () {
                 });
 
                 it("should return outputSpeech matching string", function () {
-                    expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the Houses of Parliament today. </speak>');
+                    expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the Houses of Parliament today. The next event will be on <say-as interpret-as="date" format="ymd">2017-06-13</say-as>. </speak>');
                 });
 
                 it("should have shouldEndSession equal to true", function () {
@@ -451,6 +451,24 @@ describe("Parliament Alexa", function () {
                         expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                     });
                 });
+
+                context("with no future events", function(){
+                    beforeEach(function(){
+                        helpers.reset_mockery();
+                    });
+
+                    helpers.mocked_handlers("events_none.json", "events_none.json");
+
+                    beforeEach(function(cb){
+                        event = helpers.getEvent("WhatsOnIntent/no_slots.json");
+
+                        runLambdaFunction(cb);
+                    });
+
+                    it("should return outputSpeech matching string", function () {
+                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the Houses of Parliament today. </speak>');
+                    });
+                })
             });
 
             context("with a 404 response", function(){
@@ -541,7 +559,7 @@ describe("Parliament Alexa", function () {
                         helpers.reset_mockery();
                     });
 
-                    helpers.mocked_handlers("events_none.json");
+                    helpers.mocked_handlers("events_none.json", "events_future.json");
 
                     beforeEach(function(cb){
                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -550,7 +568,7 @@ describe("Parliament Alexa", function () {
                     });
 
                     it("should return outputSpeech matching string", function () {
-                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Lords today. </speak>');
+                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Lords today. The next event will be on <say-as interpret-as="date" format="ymd">2017-06-13</say-as>. </speak>');
                     });
 
                     it("should have shouldEndSession equal to true", function () {
@@ -569,6 +587,24 @@ describe("Parliament Alexa", function () {
                             expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                         });
                     });
+
+                    context("with no future events", function(){
+                        beforeEach(function(){
+                            helpers.reset_mockery();
+                        });
+
+                        helpers.mocked_handlers("events_none.json", "events_none.json");
+
+                        beforeEach(function(cb){
+                            event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
+
+                            runLambdaFunction(cb);
+                        });
+
+                        it("should return outputSpeech matching string", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Lords today. </speak>');
+                        });
+                    })
                 });
             });
 
@@ -622,7 +658,7 @@ describe("Parliament Alexa", function () {
                         helpers.reset_mockery();
                     });
 
-                    helpers.mocked_handlers("events_none.json");
+                    helpers.mocked_handlers("events_none.json", "events_future.json");
 
                     beforeEach(function(cb){
                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -631,7 +667,7 @@ describe("Parliament Alexa", function () {
                     });
 
                     it("should return outputSpeech matching string", function () {
-                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Commons today. </speak>');
+                        expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Commons today. The next event will be on <say-as interpret-as="date" format="ymd">2017-06-13</say-as>. </speak>');
                     });
 
                     it("should have shouldEndSession equal to true", function () {
@@ -650,6 +686,24 @@ describe("Parliament Alexa", function () {
                             expect(done.response.outputSpeech.ssml).to.have.string('<speak>  </speak>');
                         });
                     });
+
+                    context("with no future events", function(){
+                        beforeEach(function(){
+                            helpers.reset_mockery();
+                        });
+
+                        helpers.mocked_handlers("events_none.json", "events_none.json");
+
+                        beforeEach(function(cb){
+                            event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
+
+                            runLambdaFunction(cb);
+                        });
+
+                        it("should return outputSpeech matching string", function () {
+                            expect(done.response.outputSpeech.ssml).to.have.string('<speak> There are no events on at the House of Commons today. </speak>');
+                        });
+                    })
                 });
             });
         });
@@ -660,10 +714,6 @@ function runLambdaFunction(cb, debug=false){
     const lambdalocal = require("lambda-local");
     lambdalocal.setLogger(winston);
     const lambda = require("../../index.js");
-
-    console.log("<<<<<<<<<<<<<");
-    console.log(event);
-    console.log(">>>>>>>>>>>>>");
 
     lambdalocal.execute({
         event: event,
@@ -679,12 +729,6 @@ function runLambdaFunction(cb, debug=false){
         callback: function (_err, _done) {
             done = _done;
             err = _err;
-
-            console.log("-----------------");
-            console.log(done);
-            console.log("=================");
-            console.log(err);
-            console.log("-----------------");
 
             if (done && debug) {
                 console.log('context.done');
