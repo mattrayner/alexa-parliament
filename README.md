@@ -80,7 +80,7 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 
 
 ## License
-[grom][grom] is licensed under the [Open Parliament Licence][info-license].
+[Alexa Parliament Skill][alexa-parliament] is licensed under the [MIT][info-license] license.
 
 
 [logo]:             https://cdn.rawgit.com/mattrayner/alexa-parliament/4c0498468e1b8afb27c0e1814615733da617c517/docs/repository-logo.svg
@@ -89,7 +89,7 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 [pds]:              https://www.parliament.uk/mps-lords-and-offices/offices/bicameral/parliamentary-digital-service/
 [vui]:              https://en.wikipedia.org/wiki/Voice_user_interface
 [overview-thumb]:   https://raw.githubusercontent.com/mattrayner/alexa-parliament/master/docs/overview-thumb.png
-[overview-image]:   https://raw.githubusercontent.com/mattrayner/alexa-parliament/master/docs/Technical%20Overview/Parliament%20Alexa%20Skill%Basic%20Overview.png
+[overview-image]:   https://raw.githubusercontent.com/mattrayner/alexa-parliament/master/docs/Technical%20Overview/Parliament%20Alexa%20Skill%20Basic%20Overview.png
 [flowchart-thumb]:  https://raw.githubusercontent.com/mattrayner/alexa-parliament/master/docs/flowchart-thumb.png
 [flowchart-image]:  https://raw.githubusercontent.com/mattrayner/alexa-parliament/master/docs/Technical%20Overview/Parliament%20Alexa%20Skill%20Command%20Flowchart.png
 [node-version]:     https://github.com/mattrayner/alexa-parliament/blob/master/.nvmrc
