@@ -7,7 +7,7 @@ const clearRequire = require("clear-require"); // Ablility to clear our require 
 const mockery = require("mockery");            // Mock external network requests
 const mock = require("mock-require");
 const sinon = require("sinon");
-const aws_helpers = require("../helpers");
+const aws_helpers = require("../support/aws_helpers");
 
 mock("aws-sdk", aws_helpers.AWS);
 aws_helpers.mockHttpResponse(200, {},'{ "foo": "bar" }');
