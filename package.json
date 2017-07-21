@@ -1,6 +1,6 @@
 {
   "name": "alexa-parliament",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "chai": "^3.5.0",
     "clear-require": "^2.0.0",
     "co-mocha": "^1.2.0",
+    "kappa-lambda": "^0.1.1",
     "lambda-local": "^1.4.2",
     "mocha": "^3.3.0",
     "mock-require": "^2.0.2",
