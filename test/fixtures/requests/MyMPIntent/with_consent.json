@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.e0e94281-af7e-4285-9933-8ea2541e4d62",
+    "application": {
+      "applicationId": "amzn1.ask.skill.d9431bea-6b44-4cea-b4ff-d4781bd09504"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AEH5HPWC542ADHTHZUVGMQDCNHGUJHHMBRMGGEFNV73FVKXJXO2GP74OI5LDWIAN7BDL3DW4CBHKR6X7JYVSPOXE5C7O774TIS4MAUKLYWPVFC5CMPEKI7ESXCPV3YIWW2TJKZO4HYGHGQ4K5X2NMTBIKBR6PNZFAMS77JWWHRETS5ZLBWLU5ZGEXF4QXJNEGBTZIXVETH4Y23Q",
+      "permissions": {
+        "consentToken": "Atza|IwEBIJTGOqDSL_C7qwfEWlGTOsDs-378xEN_aUBn9CNhyYH0yHoBdcM8B1WNFyeiJlG7TakDeQovfX-viIECsfovNN3v1seyBvAhAShWm_ouGfiwSMKl_eSii8qpH1aKSKZwT2hf_ccDvvUFI999ta_rTMIl61aia8pNIlsyz2Uh3io4vw6isgLYB7uagK4PphrZoFjwJAiYEr8ioo857eK3KA2awI7f1qgO2tWECzbI6F2gjkzPyQuJ3uoFqWOeOpEUyttoWEbkmCt6H_eJsqZlFnYAEAKyeIhDuvrWDrhZQZpX3G6_21eYnH6k1FR6fAw6mrtB1Z0B47heMJZazzppGrsIigrZaKkyhtU9fvztxyFzCbmK97bRmIZ05SgC8QJKrS72J8SFAGD3gYK_LNhtMFRWuJGj5G4v6wqhet_l3uwWlF7gzhnUQnkjKENzWh2hXp3vfvE2RiwphFxBg1hF0ycCaOxBbXFnhVAyzPS2liKaECvQe3doevl_orNUOBamp5W35PWp6JyzyIzn1ixtfbjf"
+      }
+    },
+    "attributes": {
+      "STATE": "_NULL",
+      "houseOfInterest": null
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.d9431bea-6b44-4cea-b4ff-d4781bd09504"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AEH5HPWC542ADHTHZUVGMQDCNHGUJHHMBRMGGEFNV73FVKXJXO2GP74OI5LDWIAN7BDL3DW4CBHKR6X7JYVSPOXE5C7O774TIS4MAUKLYWPVFC5CMPEKI7ESXCPV3YIWW2TJKZO4HYGHGQ4K5X2NMTBIKBR6PNZFAMS77JWWHRETS5ZLBWLU5ZGEXF4QXJNEGBTZIXVETH4Y23Q",
+        "permissions": {
+          "consentToken": "Atza|IwEBIJTGOqDSL_C7qwfEWlGTOsDs-378xEN_aUBn9CNhyYH0yHoBdcM8B1WNFyeiJlG7TakDeQovfX-viIECsfovNN3v1seyBvAhAShWm_ouGfiwSMKl_eSii8qpH1aKSKZwT2hf_ccDvvUFI999ta_rTMIl61aia8pNIlsyz2Uh3io4vw6isgLYB7uagK4PphrZoFjwJAiYEr8ioo857eK3KA2awI7f1qgO2tWECzbI6F2gjkzPyQuJ3uoFqWOeOpEUyttoWEbkmCt6H_eJsqZlFnYAEAKyeIhDuvrWDrhZQZpX3G6_21eYnH6k1FR6fAw6mrtB1Z0B47heMJZazzppGrsIigrZaKkyhtU9fvztxyFzCbmK97bRmIZ05SgC8QJKrS72J8SFAGD3gYK_LNhtMFRWuJGj5G4v6wqhet_l3uwWlF7gzhnUQnkjKENzWh2hXp3vfvE2RiwphFxBg1hF0ycCaOxBbXFnhVAyzPS2liKaECvQe3doevl_orNUOBamp5W35PWp6JyzyIzn1ixtfbjf"
+        }
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.AHRFMJKSEETVJ2NWCNVFGZC4PTKWYLMPVO53A5MU2K7ROQRSV5IA2W4BNMQZY54XSY3R5WFRFRVOAJRCO2DADW6R7BLGJXYAT3R46IST7CB4DNB3RJRQDWEVITSDPPGWLYP7M66BQSWAQLGJ4PONVPYLUXIA",
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      },
+      "apiEndpoint": "https://api.eu.amazonalexa.com"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.2d332815-210b-46e7-9f1a-62fd8ce92741",
+    "timestamp": "2017-07-24T14:23:52Z",
+    "locale": "en-GB",
+    "intent": {
+      "name": "MyMPIntent",
+      "confirmationStatus": "NONE"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<http://id.ukpds.org/LLPDwOuX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
+<http://id.ukpds.org/LLPDwOuX> <http://id.ukpds.org/schema/incumbencyStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://id.ukpds.org/dXKimAc5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personGivenName> "Mark" .
+<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personFamilyName> "Field" .
+<http://id.ukpds.org/dXKimAc5> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "Mark Field" .
