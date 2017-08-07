@@ -1,0 +1,2 @@
+<http://id.ukpds.org/gYy8mcS4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
+<http://id.ukpds.org/gYy8mcS4> <http://id.ukpds.org/schema/constituencyGroupName> "Cities of London and Westminster" .
