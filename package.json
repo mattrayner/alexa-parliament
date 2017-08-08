@@ -1,6 +1,6 @@
 {
   "name": "alexa-parliament",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
@@ -19,11 +19,13 @@
     "house",
     "of",
     "commons",
-    "house",
-    "of",
     "lords",
     "echo",
-    "amazon"
+    "amazon",
+    "parliamentlive",
+    "beta.parliament.uk",
+    "graph",
+    "ntriple"
   ],
   "author": "Matthew Rayner <raynerm@parliament.uk>",
   "license": "MIT",
