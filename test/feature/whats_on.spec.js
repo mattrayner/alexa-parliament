@@ -36,7 +36,7 @@ describe("Parliament Alexa", function () {
     describe("WhatsOnIntent", function(){
         context('With Parliament sitting as normal', function(){
             beforeEach(() => {
-                nock('https://service.calendar.parliament.uk')
+                nock('http://service.calendar.parliament.uk')
                     .get('/calendar/events/nonsitting.json?date=today')
                     .reply(200, JSON.parse('[]'));
             });
@@ -46,7 +46,7 @@ describe("Parliament Alexa", function () {
                     let file_path = __dirname + "/../fixtures/external_data/events_both_houses.json";
                     let response = fs.readFileSync(file_path, "utf8");
 
-                    nock('https://service.calendar.parliament.uk')
+                    nock('http://service.calendar.parliament.uk')
                         .get('/calendar/events/list.json?date=30days')
                         .reply(200, JSON.parse(response.trim()));
                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -116,7 +116,7 @@ describe("Parliament Alexa", function () {
                         });
 
                         it("should return outputSpeech matching string", function () {
-                            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Or say, \'help\', for more information. </speak>');
+                            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, \'who\'s my MP\' to find out information about your MP. Or say, \'help\', for more information. </speak>');
                         });
 
                         it("should have shouldEndSession equal to true", function () {
@@ -168,7 +168,7 @@ describe("Parliament Alexa", function () {
                     });
 
                     it("should return outputSpeech matching string", function () {
-                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Or say, \'help\', for more information. </speak>');
+                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, \'who\'s my MP\' to find out information about your MP. Or say, \'help\', for more information. </speak>');
                     });
 
                     it("should have shouldEndSession equal to true", function () {
@@ -216,7 +216,7 @@ describe("Parliament Alexa", function () {
 
                 context("with events in only one house", function(){
                     beforeEach(() => {
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse('[]'));
                     });
@@ -228,7 +228,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -263,7 +263,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -300,7 +300,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -339,7 +339,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -365,7 +365,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -382,7 +382,7 @@ describe("Parliament Alexa", function () {
 
                 context("with a 404 response", function(){
                     beforeEach(function(cb){
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/list.json?date=30days')
                             .reply(404, '');
 
@@ -424,7 +424,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days&house=lords')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -444,7 +444,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -480,7 +480,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days&house=lords')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -517,7 +517,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -538,7 +538,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_future_single_lords.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -567,7 +567,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days&house=commons')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -587,7 +587,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -623,7 +623,7 @@ describe("Parliament Alexa", function () {
                             let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                             let response = fs.readFileSync(file_path, "utf8");
 
-                            nock('https://service.calendar.parliament.uk')
+                            nock('http://service.calendar.parliament.uk')
                                 .get('/calendar/events/list.json?date=30days&house=commons')
                                 .reply(200, JSON.parse(response.trim()));
 
@@ -660,7 +660,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -681,7 +681,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
 
@@ -711,7 +711,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -723,7 +723,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -754,7 +754,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -784,7 +784,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -936,7 +936,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_both_houses.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -1082,7 +1082,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -1228,7 +1228,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -1376,7 +1376,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=commons')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -1407,7 +1407,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -1437,7 +1437,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -1584,7 +1584,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -1731,7 +1731,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=lords')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -1762,7 +1762,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single_lords.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -1792,7 +1792,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -1939,7 +1939,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -2085,7 +2085,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/dissolution_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -2097,7 +2097,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2128,7 +2128,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2158,7 +2158,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2310,7 +2310,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_both_houses.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2456,7 +2456,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2602,7 +2602,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -2750,7 +2750,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=commons')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -2781,7 +2781,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -2811,7 +2811,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -2958,7 +2958,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -3105,7 +3105,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=lords')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -3136,7 +3136,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single_lords.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -3166,7 +3166,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -3313,7 +3313,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -3459,7 +3459,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/named_recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -3471,7 +3471,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -3502,7 +3502,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -3532,7 +3532,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -3684,7 +3684,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_both_houses.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -3830,7 +3830,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -3976,7 +3976,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/no_slots.json");
@@ -4124,7 +4124,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=commons')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -4155,7 +4155,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -4185,7 +4185,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=commons')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -4332,7 +4332,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=commons')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/commons_slot.json");
@@ -4479,7 +4479,7 @@ describe("Parliament Alexa", function () {
                                     let file_path = __dirname + "/../fixtures/external_data/events_none.json";
                                     let response = fs.readFileSync(file_path, "utf8");
 
-                                    nock('https://service.calendar.parliament.uk')
+                                    nock('http://service.calendar.parliament.uk')
                                         .get('/calendar/events/list.json?date=30days&house=lords')
                                         .reply(200, JSON.parse(response.trim()));
                                     event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -4510,7 +4510,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future_single_lords.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -4540,7 +4540,7 @@ describe("Parliament Alexa", function () {
                                         let file_path = __dirname + "/../fixtures/external_data/events_future.json";
                                         let response = fs.readFileSync(file_path, "utf8");
 
-                                        nock('https://service.calendar.parliament.uk')
+                                        nock('http://service.calendar.parliament.uk')
                                             .get('/calendar/events/list.json?date=30days&house=lords')
                                             .reply(200, JSON.parse(response.trim()));
                                         event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -4687,7 +4687,7 @@ describe("Parliament Alexa", function () {
                                 let file_path = __dirname + "/../fixtures/external_data/events_lords.json";
                                 let response = fs.readFileSync(file_path, "utf8");
 
-                                nock('https://service.calendar.parliament.uk')
+                                nock('http://service.calendar.parliament.uk')
                                     .get('/calendar/events/list.json?date=30days&house=lords')
                                     .reply(200, JSON.parse(response.trim()));
                                 event = helpers.getEvent("WhatsOnIntent/lords_slot.json");
@@ -4835,7 +4835,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -4941,7 +4941,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/dissolution_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -5047,7 +5047,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/named_recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -5155,7 +5155,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -5261,7 +5261,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/dissolution_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
@@ -5367,7 +5367,7 @@ describe("Parliament Alexa", function () {
                         let file_path = __dirname + "/../fixtures/external_data/whats_on/nonsitting/named_recess_both.json";
                         let response = fs.readFileSync(file_path, "utf8");
 
-                        nock('https://service.calendar.parliament.uk')
+                        nock('http://service.calendar.parliament.uk')
                             .get('/calendar/events/nonsitting.json?date=today')
                             .reply(200, JSON.parse(response.trim()));
                     });
