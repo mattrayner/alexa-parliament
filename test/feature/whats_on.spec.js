@@ -116,7 +116,7 @@ describe("Parliament Alexa", function () {
                         });
 
                         it("should return outputSpeech matching string", function () {
-                            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, \'who\'s my MP\' to find out information about your MP. Or say, \'help\', for more information. </speak>');
+                            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, who\'s my MP, to find out information about your MP. Or say, \'help\', for more information. </speak>');
                         });
 
                         it("should have shouldEndSession equal to true", function () {
@@ -168,7 +168,7 @@ describe("Parliament Alexa", function () {
                     });
 
                     it("should return outputSpeech matching string", function () {
-                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, \'who\'s my MP\' to find out information about your MP. Or say, \'help\', for more information. </speak>');
+                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Welcome to Parliament. Say, \'what\'s on\', to find out whats happening today at the Houses of Parliament. Say, who\'s my MP, to find out information about your MP. Or say, \'help\', for more information. </speak>');
                     });
 
                     it("should have shouldEndSession equal to true", function () {

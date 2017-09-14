@@ -1,6 +1,6 @@
 {
   "name": "alexa-parliament",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,8 @@
     "amazon",
     "parliamentlive",
     "beta.parliament.uk",
+    "MP",
+    "postcode lookup",
     "graph",
     "ntriple"
   ],
