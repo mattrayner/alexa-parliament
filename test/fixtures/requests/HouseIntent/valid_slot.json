@@ -1,0 +1,31 @@
+{
+  "session": {
+    "sessionId": "SessionId.11478684-df20-43d0-b262-e510f4ceb8d5",
+    "application": {
+      "applicationId": "amzn1.ask.skill.d9431bea-6b44-4cea-b4ff-d4781bd09504"
+    },
+    "attributes": {
+      "STATE": "_WHATS_ON"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AFIMEQHK3TZCILBNRJNPICASFWB7UKGET5DR5FBW5ICCTYWNTHLOG2DF3CU5WAMQXOKGHOJ6YEUQE76DOQPMSFXXT7E26VJ2HFXS57UNSYH5TAXCYCKZ2MCEPGUF6SBKXOTH67HOACLQGKTGAD6RS7RKTEGOZDC4DZYUWEGJOSCVW5UTUHYMGM7XFJVZ2THM6YSMWUPJDOECIIQ"
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.632659a0-86b9-43bb-8b84-c924ca19413f",
+    "locale": "en-GB",
+    "timestamp": "2017-05-15T20:55:15Z",
+    "intent": {
+      "name": "HouseIntent",
+      "slots": {
+        "house": {
+          "name": "house",
+          "value": "common's"
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
