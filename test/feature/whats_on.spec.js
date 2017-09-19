@@ -416,6 +416,62 @@ describe("Parliament Alexa", function () {
             });
 
             context("with a house passed", function(){
+                context("invalid house", function(){
+                    beforeEach(function(cb){
+                        MockDate.set('2017-04-18');
+
+                        let file_path = __dirname + "/../fixtures/external_data/events_commons.json";
+                        let response = fs.readFileSync(file_path, "utf8");
+
+                        nock('http://service.calendar.parliament.uk')
+                            .get('/calendar/events/list.json?date=30days&house=commons')
+                            .reply(200, JSON.parse(response.trim()));
+
+                        event = helpers.getEvent("WhatsOnIntent/error_slot.json");
+                        kappaLambda.execute(event, cb);
+                    })
+
+                    it("should return outputSpeech matching string", function () {
+                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> I heard, foo. Did you mean, \'commons\', \'lords\', or, \'both\'? </speak>');
+                    });
+
+                    it("should return reprompt speech matching string", function () {
+                        expect(kappaLambda.done.response.reprompt.outputSpeech.ssml).to.have.string('<speak> Did you mean, \'commons\', \'lords\', or, \'both\'? </speak>');
+                    });
+
+                    describe("responding with HouseIntent", function(){
+                        context("with a valid house slot", function(){
+                            beforeEach(function(cb){
+                                event = helpers.getEvent("HouseIntent/valid_slot.json");
+                                kappaLambda.execute(event, cb);
+                            });
+
+                            it("should return outputSpeech matching string", function () {
+                                expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> There are 18 events on at the House of Commons today. Would you like to hear more? </speak>');
+                            });
+
+                            it("should return reprompt speech matching string", function () {
+                                expect(kappaLambda.done.response.reprompt.outputSpeech.ssml).to.have.string('<speak> Would you like to hear more? </speak>');
+                            });
+                        });
+
+                        context("with an invalid house slot", function(){
+                            beforeEach(function(cb){
+                                event = helpers.getEvent("HouseIntent/invalid_slot.json");
+                                kappaLambda.execute(event, cb);
+                            });
+
+                            it("should return outputSpeech matching string", function () {
+                                expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> I heard, foo. Did you mean, \'commons\', \'lords\', or, \'both\'? </speak>');
+                            });
+
+                            it("should return reprompt speech matching string", function () {
+                                expect(kappaLambda.done.response.reprompt.outputSpeech.ssml).to.have.string('<speak> Did you mean, \'commons\', \'lords\', or, \'both\'? </speak>');
+                            });
+                        });
+                    })
+                });
+
                 context("house of lords", function(){
                     context("with events", function(){
                         beforeEach(function(cb){

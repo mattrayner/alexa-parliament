@@ -21,6 +21,19 @@
       "samples": []
     },
     {
+      "name": "HouseIntent",
+      "samples": [
+        "{house}"
+      ],
+      "slots": [
+        {
+          "name": "house",
+          "type": "HOUSE",
+          "samples": []
+        }
+      ]
+    },
+    {
       "name": "MyMPIntent",
       "samples": [
         "who's my m. p",
@@ -377,49 +390,31 @@
       "name": "HOUSE",
       "values": [
         {
-          "id": null,
+          "id": "commons",
           "name": {
             "value": "commons",
-            "synonyms": []
+            "synonyms": [
+              "common's"
+            ]
           }
         },
         {
-          "id": null,
-          "name": {
-            "value": "common's",
-            "synonyms": []
-          }
-        },
-        {
-          "id": null,
+          "id": "lords",
           "name": {
             "value": "lords",
-            "synonyms": []
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "lord's",
-            "synonyms": []
+            "synonyms": [
+              "lord's"
+            ]
           }
         },
         {
           "id": null,
           "name": {
             "value": "parliament",
-            "synonyms": []
+            "synonyms": [
+              "both"
+            ]
           }
-        }
-      ]
-    },
-    {
-      "name": "CONSTITUENCY",
-      "values": [
-        {
-          "id": null,
-          "name": "bexleyheath and crayford",
-          "synonyms": []
         }
       ]
     }
