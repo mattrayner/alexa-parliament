@@ -47,11 +47,11 @@ describe("Parliament Alexa", function () {
         });
 
         it("should return outputSpeech matching string", function () {
-            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Parliament for Alexa, can tell you what\'s on today at the Houses of Parliament, or tell you who your MP is. Try saying, \'what\'s on\', to hear about the events at both houses. Alternatively, say, \'whats on at the commons\', or, \'whats on in the lords\', to hear about the events at a specific house. To find out who your MP is, try saying \'who\'s my MP\'. </speak>');
+            expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> Parliament for Alexa, can tell you what\'s on today at the Houses of Parliament, or tell you who your MP is. Try saying, \'what\'s on\', to hear about the events at both houses. Alternatively, say, \'whats on at the commons\', or, \'whats on in the lords\', to hear about the events at a specific house. To find out who your MP is, try saying, who\'s my MP. </speak>');
         });
 
         it("should return reprompt outputSpeech matching string", function () {
-            expect(kappaLambda.done.response.reprompt.outputSpeech.ssml).to.have.string('<speak> Try saying, \'what\'s on\', or \'who\'s my MP\'. </speak>');
+            expect(kappaLambda.done.response.reprompt.outputSpeech.ssml).to.have.string('<speak> Try saying, \'what\'s on\', or, who\'s my MP. </speak>');
         });
 
         it("should have shouldEndSession equal to false", function () {
