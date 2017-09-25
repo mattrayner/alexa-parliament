@@ -81,6 +81,20 @@
       "slots": []
     },
     {
+      "name": "PlayAudio",
+      "samples": [
+        "play",
+        "play the {house}"
+      ],
+      "slots": [
+        {
+          "name": "house",
+          "type": "HOUSE",
+          "samples": []
+        }
+      ]
+    },
+    {
       "name": "WhatsOnIntent",
       "samples": [
         "what's on",
