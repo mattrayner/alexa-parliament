@@ -1,6 +1,6 @@
 {
   "name": "alexa-parliament",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "A simple Alexa skill for the UK Parliament.",
   "main": "index.js",
   "scripts": {
