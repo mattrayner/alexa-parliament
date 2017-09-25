@@ -24,7 +24,7 @@ module.exports = {
                     return Bluebird.resolve(response.trim());
                 });
 
-                mocked_handlers = require("../../lib/parliament/handlers").mainHandlers;
+                mocked_handlers = require("../../lib/parliament/stateHandlers").mainHandlers;
                 mocked_handlers.t = function(key) { return language_strings[translation_dictionary].translation[key] };
                 mocked_handlers.emit = function(arguments) {  };
                 mocked_handlers.attributes = [];
