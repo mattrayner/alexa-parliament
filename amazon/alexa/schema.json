@@ -91,16 +91,9 @@
     {
       "name": "PlayAudio",
       "samples": [
-        "play",
-        "play the {house}"
+        "play the latest stream"
       ],
-      "slots": [
-        {
-          "name": "house",
-          "type": "HOUSE",
-          "samples": []
-        }
-      ]
+      "slots": []
     },
     {
       "name": "WhatsOnIntent",
