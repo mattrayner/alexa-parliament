@@ -239,7 +239,7 @@ describe("Parliament Alexa", function () {
                                     });
 
                                     it("should return outputSpeech matching string", function () {
-                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for SW1A 0AA, is Mark Field. Your MP was elected on <say-as interpret-as="date" format="ymd">2017-06-08</say-as>. </speak>');
+                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for SW1A 0AA, is Mark Field. Your MP was elected on <say-as interpret-as="date" format="dmy">08-06-2017</say-as>. </speak>');
                                     });
                                 });
 
@@ -256,7 +256,7 @@ describe("Parliament Alexa", function () {
                                     });
 
                                     it("should return outputSpeech matching string", function () {
-                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for Cities of London and Westminster, is Mark Field. Your MP was elected on <say-as interpret-as="date" format="ymd">2017-06-08</say-as>. </speak>');
+                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for Cities of London and Westminster, is Mark Field. Your MP was elected on <say-as interpret-as="date" format="dmy">08-06-2017</say-as>. </speak>');
                                     });
                                 });
                             });
@@ -313,7 +313,7 @@ describe("Parliament Alexa", function () {
                                     });
 
                                     it("should return outputSpeech matching string", function () {
-                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for SW1A 0AA, is Mark Field. Your MP is a member of the Conservative party, and was elected on <say-as interpret-as="date" format="ymd">2017-06-08</say-as>. </speak>');
+                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for SW1A 0AA, is Mark Field. Your MP is a member of the Conservative party, and was elected on <say-as interpret-as="date" format="dmy">08-06-2017</say-as>. </speak>');
                                     });
                                 });
 
@@ -330,7 +330,7 @@ describe("Parliament Alexa", function () {
                                     });
 
                                     it("should return outputSpeech matching string", function () {
-                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for Cities of London and Westminster, is Mark Field. Your MP is a member of the Conservative party, and was elected on <say-as interpret-as="date" format="ymd">2017-06-08</say-as>. </speak>');
+                                        expect(kappaLambda.done.response.outputSpeech.ssml).to.have.string('<speak> The MP for Cities of London and Westminster, is Mark Field. Your MP is a member of the Conservative party, and was elected on <say-as interpret-as="date" format="dmy">08-06-2017</say-as>. </speak>');
                                     });
 
                                     it("should have shouldEndSession equal to true", function () {
