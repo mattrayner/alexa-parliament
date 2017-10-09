@@ -17,7 +17,7 @@ const kappaLambda = new KappaLambda(lambdaFile);
 
 const helpers = require("../support/test_helpers").feature_helpers;
 
-winston.level = "error";
+process.env.TEST = 'true';
 
 let event;
 let kappaResponse;

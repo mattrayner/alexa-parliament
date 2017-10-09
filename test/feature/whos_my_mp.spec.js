@@ -16,7 +16,7 @@ const kappaLambda = new KappaLambda(lambdaFile);
 
 const helpers = require("../support/test_helpers").feature_helpers;
 
-winston.level = "error";
+process.env.TEST = 'true';
 
 describe("Parliament Alexa", function () {
     describe("MyMPIntent", function () {
