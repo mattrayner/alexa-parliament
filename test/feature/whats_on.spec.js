@@ -26,7 +26,6 @@ describe("Parliament Alexa", function () {
     beforeEach(() => {
         MockDate.set('2017-03-21');
     });
-
     afterEach(() => {
         MockDate.reset();
 
