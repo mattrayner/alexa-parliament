@@ -6,3 +6,4 @@ lib/*.zip
 *.zip
 .DS_Store
 doc/
+app.log
