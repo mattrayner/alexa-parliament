@@ -1,8 +1,8 @@
-<http://id.ukpds.org/gYy8mcS4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
-<http://id.ukpds.org/gYy8mcS4> <http://id.ukpds.org/schema/constituencyGroupName> "Cities of London and Westminster" .
-<http://id.ukpds.org/LLPDwOuX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
-<http://id.ukpds.org/LLPDwOuX> <http://id.ukpds.org/schema/incumbencyStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://id.ukpds.org/dXKimAc5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personGivenName> "Mark" .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personFamilyName> "Field" .
-<http://id.ukpds.org/dXKimAc5> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "Mark Field" .
+<https://id.parliament.uk/gYy8mcS4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ConstituencyGroup> .
+<https://id.parliament.uk/gYy8mcS4> <https://id.parliament.uk/schema/constituencyGroupName> "Cities of London and Westminster" .
+<https://id.parliament.uk/LLPDwOuX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SeatIncumbency> .
+<https://id.parliament.uk/LLPDwOuX> <https://id.parliament.uk/schema/incumbencyStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://id.parliament.uk/dXKimAc5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Person> .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/personGivenName> "Mark" .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/personFamilyName> "Field" .
+<https://id.parliament.uk/dXKimAc5> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "Mark Field" .

@@ -1,18 +1,18 @@
-<http://id.ukpds.org/gYy8mcS4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
-<http://id.ukpds.org/gYy8mcS4> <http://id.ukpds.org/schema/constituencyGroupName> "Cities of London and Westminster" .
-<http://id.ukpds.org/28VxjIIx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
-<http://id.ukpds.org/28VxjIIx> <http://id.ukpds.org/schema/houseSeatHasConstituencyGroup> <http://id.ukpds.org/gYy8mcS4> .
-<http://id.ukpds.org/LLPDwOuX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
-<http://id.ukpds.org/LLPDwOuX> <http://id.ukpds.org/schema/incumbencyStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://id.ukpds.org/LLPDwOuX> <http://id.ukpds.org/schema/seatIncumbencyHasHouseSeat> <http://id.ukpds.org/28VxjIIx> .
-<http://id.ukpds.org/dXKimAc5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personGivenName> "Mark" .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/personFamilyName> "Field" .
-<http://id.ukpds.org/dXKimAc5> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "Mark Field" .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/LLPDwOuX> .
-<http://id.ukpds.org/dXKimAc5> <http://id.ukpds.org/schema/partyMemberHasPartyMembership> <http://id.ukpds.org/1gJUXnXt> .
-<http://id.ukpds.org/1gJUXnXt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/PartyMembership> .
-<http://id.ukpds.org/1gJUXnXt> <http://id.ukpds.org/schema/partyMembershipHasParty> <http://id.ukpds.org/jF43Jxoc> .
-<http://id.ukpds.org/1gJUXnXt> <http://id.ukpds.org/schema/partyMembershipStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://id.ukpds.org/jF43Jxoc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
-<http://id.ukpds.org/jF43Jxoc> <http://id.ukpds.org/schema/partyName> "Conservative" .
+<https://id.parliament.uk/gYy8mcS4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ConstituencyGroup> .
+<https://id.parliament.uk/gYy8mcS4> <https://id.parliament.uk/schema/constituencyGroupName> "Cities of London and Westminster" .
+<https://id.parliament.uk/28VxjIIx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/HouseSeat> .
+<https://id.parliament.uk/28VxjIIx> <https://id.parliament.uk/schema/houseSeatHasConstituencyGroup> <https://id.parliament.uk/gYy8mcS4> .
+<https://id.parliament.uk/LLPDwOuX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SeatIncumbency> .
+<https://id.parliament.uk/LLPDwOuX> <https://id.parliament.uk/schema/incumbencyStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://id.parliament.uk/LLPDwOuX> <https://id.parliament.uk/schema/seatIncumbencyHasHouseSeat> <https://id.parliament.uk/28VxjIIx> .
+<https://id.parliament.uk/dXKimAc5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Person> .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/personGivenName> "Mark" .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/personFamilyName> "Field" .
+<https://id.parliament.uk/dXKimAc5> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "Mark Field" .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/memberHasIncumbency> <https://id.parliament.uk/LLPDwOuX> .
+<https://id.parliament.uk/dXKimAc5> <https://id.parliament.uk/schema/partyMemberHasPartyMembership> <https://id.parliament.uk/1gJUXnXt> .
+<https://id.parliament.uk/1gJUXnXt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PartyMembership> .
+<https://id.parliament.uk/1gJUXnXt> <https://id.parliament.uk/schema/partyMembershipHasParty> <https://id.parliament.uk/jF43Jxoc> .
+<https://id.parliament.uk/1gJUXnXt> <https://id.parliament.uk/schema/partyMembershipStartDate> "2017-06-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://id.parliament.uk/jF43Jxoc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Party> .
+<https://id.parliament.uk/jF43Jxoc> <https://id.parliament.uk/schema/partyName> "Conservative" .
