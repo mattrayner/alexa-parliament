@@ -42,7 +42,7 @@
     "n3": "^0.11.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
-    "sanitize-html": "^1.14.1",
+    "sanitize-html": "^2.7.1",
     "ssml-validator": "^0.1.0",
     "winston": "^2.3.1"
   },
